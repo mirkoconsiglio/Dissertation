@@ -4,19 +4,19 @@ import matplotlib.pyplot as plt
 from matplotlib import rc
 import pickle
 
-rc('font',**{'family':'Times New Roman','sans-serif':['Times New Roman'], 'size': 12})
+rc('font',**{'family':'Times New Roman','sans-serif':['Times New Roman'], 'size': 16})
 rc('text', usetex=True)
 
 def plot_results(collision_number, numerical_tangle_list, fidelity_GHZ_list, fidelity_T_list,
                  numerical_tangle_list_sim, fidelity_GHZ_list_sim, fidelity_T_list_sim,
                  theta, initial_statevector):
 
-    c1 = '#5f15ff'
+    c1 = '#7c61eb'
     c2 = '#ba0c2f'
-    c3 = '#0cba97'
+    c3 = '#48bab2'
 
-    s1 = 8
-    s2 = 8.68
+    s1 = 10.7
+    s2 = 11.6
     mew1 = 0.8
     mew2 = 0.8
     lw = 0.8
@@ -63,7 +63,7 @@ def plot_results(collision_number, numerical_tangle_list, fidelity_GHZ_list, fid
     ax.plot(x, tau, label=r'Theoretical', c=c3, ls='-', lw=lw, zorder=3)
     ax.legend()
 
-    plt.savefig('tangle.pdf')
+    plt.savefig('tangle.pdf', bbox_inches='tight', transparent=True)
 
     ax = plt.figure().add_subplot()
     general(ax)
@@ -78,7 +78,7 @@ def plot_results(collision_number, numerical_tangle_list, fidelity_GHZ_list, fid
     ax.plot(x, F_GHZ, label=r'Theoretical', color=c3, ls='-', lw=lw, zorder=3)
     ax.legend()
 
-    plt.savefig('GHZ fidelity.pdf')
+    plt.savefig('GHZ fidelity.pdf', bbox_inches='tight', transparent=True)
 
     ax = plt.figure().add_subplot()
     general(ax)
@@ -93,7 +93,7 @@ def plot_results(collision_number, numerical_tangle_list, fidelity_GHZ_list, fid
     ax.plot(x, F_T, label=r'Theoretical', color=c3, ls='-', lw=lw, zorder=3)
     ax.legend()
 
-    plt.savefig('teleported fidelity.pdf')
+    plt.savefig('teleported fidelity.pdf', bbox_inches='tight', transparent=True)
 
     ax = plt.figure().add_subplot()
     general(ax)
@@ -111,7 +111,7 @@ def plot_results(collision_number, numerical_tangle_list, fidelity_GHZ_list, fid
     ax.plot(x, g, color=c3, ls='-', lw=lw, zorder=3)
     ax.legend()
 
-    plt.savefig('fidelity-tangle.pdf', bbox_inches='tight')
+    plt.savefig('fidelity-tangle.pdf', bbox_inches='tight', transparent=True)
 
 data = pickle.load(open('data.json', 'rb'))
 
