@@ -10,7 +10,7 @@ from qiskit.tools.monitor import job_monitor
 
 class Teleportation_Protocol(object):
     def __init__(self, protocol='Bell_teleport', device='qasm_simulator', live=False, qasm_sim=False,
-                 noise_model=None, shots=1024, save_results=True, directory=None): # QIP_Task initialisation function
+                 noise_model=None, shots=1024, save_results=False, directory=None): # QIP_Task initialisation function
 
         # Stores protocol information
         self.protocol = protocol
@@ -90,7 +90,7 @@ class Teleportation_Protocol(object):
                       [1j, 0]])
         spin_flip = np.kron(Y, Y)
         rho_tilde = np.matmul(np.matmul(spin_flip, np.matrix.conjugate(rho)), spin_flip)
-        l = np.sort(np.nan_to_num(np.sqrt(np.real(np.linalg.eigvals(np.matmul(rho, rho_tilde))))))[::-1]
+        l = np.sort(np.sqrt(np.nan_to_num(np.real(np.linalg.eigvals(np.matmul(rho, rho_tilde))))))[::-1]
 
         return np.max([0, l[0] - l[1] - l[2] - l[3]])
 
@@ -260,7 +260,7 @@ class Teleportation_Protocol(object):
 
     def collisional_model(self,
                           channel='phase_damping',
-                          target_qubit=3,
+                          target_qubit=2,
                           collision_number=5,
                           theta=np.pi / 4,
                           initial_statevector=np.array([1, 1] / np.sqrt(2)),
