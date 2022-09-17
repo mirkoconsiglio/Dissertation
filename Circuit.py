@@ -14,17 +14,9 @@ from qiskit.providers.aer import noise
 from qiskit.providers.aer.noise import NoiseModel
 from qiskit.providers.aer.noise.errors import thermal_relaxation_error
 from qiskit.quantum_info.states.measures import state_fidelity
-#from qiskit.quantum_info import partial_trace
-from qiskit.tools.qi.qi import partial_trace
+from qiskit.quantum_info import partial_trace
 from scipy.optimize import minimize, NonlinearConstraint, Bounds
 from scipy.special import comb
-
-# IBMQ.save_account('584e07bcdb11290b401e6a79ba00887070738a17576998b2535b42ed9c52d49413ac8b5ce3febf58165a2e2ce41dda1529bca8fe091c8dc9629b2e1e62b27a03')
-
-# np.random.seed(0)
-# random.seed(0)
-
-# rcParams.update({'figure.max_open_warning': 0})
 
 I = np.array([[1, 0],
               [0, 1]])

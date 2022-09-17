@@ -13,7 +13,7 @@ def plot_results(collision_number, numerical_tangle_list, fidelity_S_list, fidel
 
     collision_number = np.arange(collision_number + 1)
 
-    c1 = '#5f15ff'
+    c1 = '# 5f15ff'
     c2 = '#ba0c2f'
     c3 = '#0cba97'
 
